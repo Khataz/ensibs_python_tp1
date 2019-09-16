@@ -1,12 +1,6 @@
 import sys
 import re
 
-class NumberValuesException(Exception):
-    """
-    Too much or less numbers
-
-    This class is a custom exception class that hekp us knowing wwhat error was raised.
-    """
 
 def main(line):
     """
@@ -27,13 +21,12 @@ def main(line):
                 speed = distance/time
                 return speed
             else:
-                print("1.2 BAD INPUT: Time must be greater than 0!")
+                raise Exception(12, "BAD INPUT: Time must be greater than 0!")
         else:
-            print("1.1 BAD INPUT: Values are not digits or are less than 0!")
+            raise Exception(11, "BAD INPUT: Values are not digits or are less than 0!")
     else:
         raise Exception(10, "BAD INPUT: You need to enter 2 values")
-    #except NumberValuesException:
-    #    print("1.0 BAD INPUT: You need to enter 2 values")
+
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
