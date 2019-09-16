@@ -1,4 +1,4 @@
- #!/usr/bin/env python3 -W ignore::DeprecationWarning
+#!/usr/bin/env python3 -W ignore::DeprecationWarning
 import main
 import unittest
 
@@ -13,7 +13,9 @@ class TestMainMethods(unittest.TestCase):
 
         # self.assertTrue("1.0 BAD INPUT: You need to enter 2 values" in too_much_values.exception)
      
-        self.assertRaises(main.NumberValuesException, main.main('10;4;01'))
+        #self.assertRaises(main.NumberValuesException, main.main('10;4;01'))
+        with self.assertRaises(Exception) as E:
+            res = main.main('10;4;01')
 
     # def test_not_enought_values(self):
     #     self.assertEqual(str(main.main("10")).find("1.0 BAD INPUT"), -1)
