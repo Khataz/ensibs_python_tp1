@@ -48,8 +48,10 @@ class TestMainMethods(unittest.TestCase):
             main.main('350;$')
         self.assertTrue(e.exception.args[0] == 200)
 
-    # def test_time_equals_0(self);
-    #     #TODO
+    def test_time_equals_0(self):
+        with self.assertRaises(Exception) as e:
+            main.main('0;3084')
+        self.assertTrue(e.exception.args[0] == 300)
 
 if __name__ == '__main__':
     unittest.main()
