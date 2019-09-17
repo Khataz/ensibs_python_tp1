@@ -2,6 +2,7 @@ import sys
 import re
 from math import sqrt
 
+
 def main(line):
     """
     Compute square root of a number.
@@ -13,8 +14,8 @@ def main(line):
     @rtype float
     """
     if(re.match(r'^[0-9]*\.[0-9]*$', line) and (line != '.')):
-        #TODO 1: Should we block int ? (we did here)
-        #TODO 2: What about negative float ? (see failed test)
+        # TODO 1: Should we block int ? (we did here)
+        # TODO 2: What about negative float ? (see failed test)
         # maybye this regex : '^-?([0-9]*\.[0-9]*)(e-?[0-9]+)?$'
         try:
             value = float(line)
@@ -34,11 +35,11 @@ if __name__ == "__main__":
         for line in f.readlines():
             try:
                 result = main(line.strip())
-            except Exception as exception :
+            except Exception as exception:
                 error_code = exception.args[0]
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
-            else :
+            else:
                 print("Square root = " + str(result))
     else:
         print("Error: you must enter file name")
