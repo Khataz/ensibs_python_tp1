@@ -13,6 +13,7 @@ def main(line):
     @rtype float
     """
     if(re.match(r'^[0-9]*\.[0-9]*$', line) and (line != '.')):
+        #TODO: Should we block int ? (we did here)
         try:
             value = float(line)
             return sqrt(value)
