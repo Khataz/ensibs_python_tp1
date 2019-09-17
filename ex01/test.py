@@ -26,7 +26,7 @@ class TestMainMethods(unittest.TestCase):
             main.main('')
         self.assertTrue(e.exception.args[0] == 100)
     
-    def test_value_0_is_not_a_digit(self):
+    def test_value_0_is_bad(self):
         with self.assertRaises(Exception) as e:
             main.main('1a4;10')
         self.assertTrue(e.exception.args[0] == 200)
@@ -36,8 +36,11 @@ class TestMainMethods(unittest.TestCase):
         with self.assertRaises(Exception) as e:
             main.main('$;10')
         self.assertTrue(e.exception.args[0] == 200)
+        with self.assertRaises(Exception) as e:
+            main.main('-248;2508')
+        self.assertTrue(e.exception.args[0] == 200)
 
-    def test_value_1_is_not_a_digit(self):
+    def test_value_1_is_bad(self):
         with self.assertRaises(Exception) as e:
             main.main('308;1groh0')
         self.assertTrue(e.exception.args[0] == 200)
@@ -46,6 +49,9 @@ class TestMainMethods(unittest.TestCase):
         self.assertTrue(e.exception.args[0] == 200)
         with self.assertRaises(Exception) as e:
             main.main('350;$')
+        self.assertTrue(e.exception.args[0] == 200)
+        with self.assertRaises(Exception) as e:
+            main.main('0248;-5')
         self.assertTrue(e.exception.args[0] == 200)
 
     def test_time_equals_0(self):
