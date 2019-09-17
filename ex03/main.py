@@ -6,6 +6,7 @@ def main(line):
     values = line.split(';')
     if((len(values) == 2) and (values[0] != '') and (values[1] != '')):
         if(re.match(r'^\w*$', values[0]) and re.match(r'^\w*$', values[1])):
+            #TODO: We use "\w" here but we can enter numbers, should we block numbers ?
             word1 = values[0]
             word2 = values[1]
 
