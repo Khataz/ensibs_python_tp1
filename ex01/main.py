@@ -15,6 +15,7 @@ def main(line):
     values = line.split(';')
     if((len(values) == 2) and (values[0] != '') and (values[1] != '')):
         if(re.match('^[0-9]*\.?[0-9]*$', values[0]) and re.match('^[0-9]*\.?[0-9]*$', values[1])):
+            #TODO: CHECK values[0] & values [1] must be different than '' and '.'
             time = float(values[0])
             distance = float(values[1])
             if(time > 0):
