@@ -29,13 +29,14 @@ class TestMainMethods(unittest.TestCase):
             main.main('a')
         self.assertTrue(e.exception.args[0] == 100)
 
-    def test_not_a_float(self):
+    def test_negative_floats(self):
+        # TODO : should we take it ? i don't think so
         with self.assertRaises(Exception) as e:
             main.main('-1.')
         self.assertTrue(e.exception.args[0] == 150)
 
         with self.assertRaises(Exception) as e:
-            main.main('2.0e-1')
+            main.main('-2.0e-1')
         self.assertTrue(e.exception.args[0] == 150)    
 
 if __name__ == '__main__':
