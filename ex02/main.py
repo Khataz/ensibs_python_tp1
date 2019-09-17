@@ -13,9 +13,10 @@ def main(line):
     @rtype float
     """
     if(re.match(r'^[0-9]*\.[0-9]*$', line) and (line != '.')):
-        if(value = float(line)):
+        try:
+            value = float(line)
             return sqrt(value)
-        else:
+        except:
             raise Exception(200, "BAD INPUT: Failed casting to float")
     else:
         raise Exception(100, "BAD INPUT: Not a float")
