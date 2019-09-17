@@ -4,7 +4,7 @@ from math import sqrt
 
 def main(line):
     #TODO
-    if(re.match('^[0-9]*\.[0-9]*$', line) and (line != '.')):
+    if(re.match(r'^[0-9]*\.[0-9]*$', line) and (line != '.')):
         return sqrt(float(line))
     else:
         raise Exception(100, "BAD INPUT: Not a float")

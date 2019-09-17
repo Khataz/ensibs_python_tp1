@@ -14,7 +14,7 @@ def main(line):
     """
     values = line.split(';')
     if((len(values) == 2) and (values[0] != '') and (values[1] != '') and (values[0] != '.' and values[1] != '.')):
-        if(re.match('^[0-9]*\.?[0-9]*$', values[0]) and re.match('^[0-9]*\.?[0-9]*$', values[1])):
+        if(re.match(r'^[0-9]*\.?[0-9]*$', values[0]) and re.match(r'^[0-9]*\.?[0-9]*$', values[1])):
             time = float(values[0])
             distance = float(values[1])
             if(time > 0):
