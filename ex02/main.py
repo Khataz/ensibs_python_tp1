@@ -3,9 +3,20 @@ import re
 from math import sqrt
 
 def main(line):
-    #TODO
+    """
+    Compute square root of a number.
+
+    @param line: line readed from file containing a float
+    @type line: string
+    @raise Exception: if BAD INPUT
+    @return value
+    @rtype float
+    """
     if(re.match('^[0-9]*\.[0-9]*$', line) and (line != '.')):
-        return sqrt(float(line))
+        if(value = float(line)):
+            return sqrt(value)
+        else:
+            raise Exception(200, "BAD INPUT: Failed casting to float")
     else:
         raise Exception(100, "BAD INPUT: Not a float")
 
