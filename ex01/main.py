@@ -21,11 +21,11 @@ def main(line):
                 speed = distance/time
                 return speed
             else:
-                raise Exception(12, "BAD INPUT: Time must be greater than 0!")
+                raise Exception(300, "BAD INPUT: Time must be greater than 0!")
         else:
-            raise Exception(11, "BAD INPUT: Values are not digits or are less than 0!")
+            raise Exception(200, "BAD INPUT: Values are not digits or are less than 0!")
     else:
-        raise Exception(10, "BAD INPUT: You need to enter 2 values")
+        raise Exception(100, "BAD INPUT: You need to enter 2 values")
 
 
 if __name__ == "__main__":
