@@ -1,3 +1,6 @@
 toto;titi
 salut;amour
 anticonstitutionnellement;zèbre
+salut les gens;hello
+thisisnotastring; working
+lol;lol
