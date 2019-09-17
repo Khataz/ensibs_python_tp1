@@ -1,10 +1,14 @@
 import sys
 import re
-
+from math import sqrt
 
 def main(line):
     #TODO
-    # ^[0-9]*\.[0-9]*$
+    if(re.match('^[0-9]*\.[0-9]*$', line) and (line != '.')):
+        return sqrt(float(line))
+    else:
+        raise Exception(100, "BAD INPUT: Not a float")
+
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
