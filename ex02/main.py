@@ -4,7 +4,7 @@ import re
 
 def main(line):
     #TODO
-
+    # ^[0-9]*\.[0-9]*$
 
 if __name__ == "__main__":
     if(len(sys.argv) > 1):
