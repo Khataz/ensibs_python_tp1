@@ -1,6 +1,7 @@
 toto;titi
 salut;amour
 anticonstitutionnellement;zèbre
+arboré;poutre
 salut les gens;hello
 thisisnotastring; working
 lol;lol
