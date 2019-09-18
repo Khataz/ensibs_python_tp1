@@ -13,10 +13,9 @@ def main(line):
     @return value
     @rtype float
     """
-    if(re.match(r'^[0-9]*\.[0-9]*$', line) and (line != '.')):
+    if(re.match(r'^([0-9]*\.[0-9]*)(e-?[0-9]+)?$', line) and (line != '.')):
         # TODO 1: Should we block int ? (we did here)
-        # TODO 2: What about negative float ? (see failed test)
-        # maybye this regex : '^-?([0-9]*\.[0-9]*)(e-?[0-9]+)?$'
+        # TODO 2: Test if we allow all floats
         try:
             value = float(line)
             return sqrt(value)
