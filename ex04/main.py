@@ -1,6 +1,7 @@
 import sys
 import re
 
+OK = "OK"
 STOP = "STOP"
 INCREASE_VOLUME = "INCREASE_VOLUME"
 DECREASE_VOLUME = "DECREASE_VOLUME"
@@ -21,7 +22,7 @@ def main(line):
             elif((volume > vThreshold) and (pressure >= 0)):
                 return DECREASE_VOLUME
             else:
-                raise Exception(300, "BAD INPUT")
+                return OK
         else:
             raise Exception(200, "BAD INPUT: Values are not digits or are less than 0!")
     else:
@@ -49,6 +50,6 @@ if __name__ == "__main__":
                 elif(result == DECREASE_VOLUME):
                     print("You need to DECREASE the volume of the enclosure!")
                 else:
-                    raise Exception(1000, "RESULT ERROR")
+                    print("Everything is fine!")
     else:
         print("Error: you must enter file name")
