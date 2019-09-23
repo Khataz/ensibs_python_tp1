@@ -31,7 +31,6 @@ class TestMainMethods(unittest.TestCase):
         self.assertTrue(e.exception.args[0] == 100)
 
     def test_negative_floats(self):
-        # TODO : should we take it ? i don't think so
         with self.assertRaises(Exception) as e:
             main.main('-1.')
         self.assertTrue(e.exception.args[0] == 100)
