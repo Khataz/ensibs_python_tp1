@@ -30,14 +30,17 @@ def tabuler(fonction, borneInf, borneSup, nbPas):
     @param nbPas: step
     @type nbPas: int
     @return value
-    @rtype float
+    @rtype array[float]
     """
     if borneInf < borneSup:
+        # TODO check boundary in new subject"""
+        ret = []
         for i in arange(borneInf, borneSup + 1, nbPas):
-            print(str(fonction(i)))
+            ret.append(fonction(i))
     else:
         raise Exception(
             300, "BAD INPUT: borneInf must be lower than borneSup")
+    return ret;
 
 
 def main(line):
@@ -48,14 +51,13 @@ def main(line):
     @type line: string
     @raise Exception: if BAD INPUT
     @return /
-    @rtype void
+    @rtype array[float]
 
     @todo check why it continue after raised error
     """
     values = line.split(';')
     regex = "-?([0-9]*\.?[0-9]*)(e-?[0-9]+)?$"
     if len(values) == 3:
-        print(str(values[0]))
         if re.match(str(regex), str(values[0])) and values[0] != '.':
             try:
                 borneInf = float(values[0])
@@ -73,11 +75,13 @@ def main(line):
                         if re.match(str(regex), str(values[2])) and values[2] != '.':
                             try:
                                 nbPas = int(values[2])
+                                if nbPas <= 0 :
+                                    raise Exception(230, "BAD INPUT: nbPas must be positive")
                             except:
                                 raise Exception(
                                     220, "BAD INPUT: Failed casting nbPas to float")
-                            else:
-                                tabuler(maFonction, borneInf, borneSup, nbPas)
+                            '''else:
+                                ret = tabuler(maFonction, borneInf, borneSup, nbPas)'''
                         else:
                             raise Exception(
                                 120, "BAD INPUT: nbPas is not a float")
@@ -88,6 +92,9 @@ def main(line):
     else:
         raise Exception(
             10, "BAD INPUT: you need to pass 3 args : borneInf, borneSup, nbPas")
+
+    ret = tabuler(maFonction, borneInf, borneSup, nbPas)
+    return ret;
 
 
 if __name__ == "__main__":
@@ -103,5 +110,7 @@ if __name__ == "__main__":
                 error_code = exception.args[0]
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
+            else:
+                print(str(result))
     else:
         print("Error: you must enter a file name")
