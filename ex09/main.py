@@ -39,3 +39,12 @@ def function10(list):
 
 if __name__ == "__main__":
     print(function1(originalList.copy()))
+    print(function2(originalList.copy()))
+    print(function3(originalList.copy()))
+    print(function4(originalList.copy()))
+    print(function5(originalList.copy()))
+    print(function6(originalList.copy()))
+    print(function7(originalList.copy()))
+    print(function8(originalList.copy()))
+    print(function9(originalList.copy()))
+    print(function10(originalList.copy()))
