@@ -9,8 +9,8 @@ def splitTime(hour):
     minute = 0
 
     if(len(splittedTime) == 2):
-        minute = "0." + splittedTime[1][0:2]
-        minute = float(minute)*60
+        minute = "0." + splittedTime[1]
+        minute = round(float(minute)*60, 10)
         minute = str(minute)
         minute = int(minute.split('.')[0])
     return (hour,minute)
@@ -29,7 +29,7 @@ def tchacatchac(speed):
 
 if __name__ == "__main__":
     result = []
-    for speed in range(100, 300, 10):
+    for speed in range(100, 310, 10):
         result.append(tchacatchac(speed))
 
     print(result)
