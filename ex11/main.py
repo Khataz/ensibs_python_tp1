@@ -1,14 +1,15 @@
-def main(liste):
+def main(str1, str2):
     """
     Return list
 
     @return ret
     @rtype array[int]
     """
-    ret = [x+3 if x > 2 else x for x in liste]
+
+    ret = [(x,y) for x in str1 for y in str2]
     return ret
 
 
 if __name__ == "__main__":
-    res = main([n for n in range(6)])
+    res = main("abc", "de")
     print(str(res))
