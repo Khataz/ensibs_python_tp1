@@ -18,12 +18,13 @@ def main(line):
             time = float(values[0])
             distance = float(values[1])
             if(time > 0):
-                speed = distance/time
+                speed = distance / time
                 return speed
             else:
                 raise Exception(300, "BAD INPUT: Time must be greater than 0!")
         else:
-            raise Exception(200, "BAD INPUT: Values are not digits or are less than 0!")
+            raise Exception(
+                200, "BAD INPUT: Values are not digits or are less than 0!")
     else:
         raise Exception(100, "BAD INPUT: You need to enter 2 values")
 
@@ -37,11 +38,11 @@ if __name__ == "__main__":
         for line in f.readlines():
             try:
                 speed = main(line.strip())
-            except Exception as exception :
+            except Exception as exception:
                 error_code = exception.args[0]
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
-            else :
+            else:
                 print("Speed = " + str(round(speed, 1)) + " m/s")
     else:
         print("Error: you must enter file name")

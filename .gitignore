@@ -108,3 +108,4 @@ venv.bak/
 
 # vs_code
 .vs_code/
+.vscode/*
