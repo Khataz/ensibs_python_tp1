@@ -6,7 +6,7 @@ def main(str1, str2):
     @rtype array[int]
     """
 
-    ret = [(x,y) for x in str1 for y in str2]
+    ret = [x+y for x in str1 for y in str2]
     return ret
 
 
