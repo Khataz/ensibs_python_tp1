@@ -56,7 +56,7 @@ def main(line):
     @todo check why it continue after raised error
     """
     values = line.split(';')
-    regex = "-?([0-9]*\.?[0-9]*)(e-?[0-9]+)?$"
+    regex = r"-?([0-9]*\.?[0-9]*)(e-?[0-9]+)?$"
     if len(values) == 3:
         if re.match(str(regex), str(values[0])) and values[0] != '.':
             try:
