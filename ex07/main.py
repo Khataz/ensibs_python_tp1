@@ -40,7 +40,7 @@ def tabuler(fonction, borneInf, borneSup, nbPas):
     else:
         raise Exception(
             300, "BAD INPUT: borneInf must be lower than borneSup")
-    return ret;
+    return ret
 
 
 def main(line):
@@ -75,8 +75,9 @@ def main(line):
                         if re.match(str(regex), str(values[2])) and values[2] != '.':
                             try:
                                 nbPas = int(values[2])
-                                if nbPas <= 0 :
-                                    raise Exception(230, "BAD INPUT: nbPas must be positive")
+                                if nbPas <= 0:
+                                    raise Exception(
+                                        230, "BAD INPUT: nbPas must be positive")
                             except:
                                 raise Exception(
                                     220, "BAD INPUT: Failed casting nbPas to float")
@@ -94,7 +95,7 @@ def main(line):
             10, "BAD INPUT: you need to pass 3 args : borneInf, borneSup, nbPas")
 
     ret = tabuler(maFonction, borneInf, borneSup, nbPas)
-    return ret;
+    return ret
 
 
 if __name__ == "__main__":
