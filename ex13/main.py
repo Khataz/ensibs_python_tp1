@@ -2,12 +2,10 @@ import sys
 import re
 
 def CompterMots(sentence) :
+    # TODO:I allowed '-' to count as char, is that right, see regex
+    words = sentence.split()
 
-    # TODO:I allowed '-' to count as char, is that right
-    sentence = sentence.replace(" ", "")
-    sentence = sentence.replace(".", "")
-
-    ret = {e:sentence.count(e) for e in sentence}
+    ret = {e:sentence.count(e) for e in words}
 
     return ret
 

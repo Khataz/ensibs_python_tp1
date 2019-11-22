@@ -1,0 +1,5 @@
+toto
+toto titi
+toto titi toto tata.
+Hello world !
+salut ! a . tous !
