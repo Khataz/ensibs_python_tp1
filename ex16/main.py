@@ -1,3 +1,6 @@
+import sys
+import re
+
 class Vecteur2D:
 
     x = 0
@@ -9,20 +12,41 @@ class Vecteur2D:
         self.y = valY
 
     def affiche(self):
-        print(self.x,self.y)
+        print("(x=" + str(self.x) + ", y=" + str(self.y) + ")")
 
-    def __add__(self, v2):
-        return(Vecteur2D(self.x+v2.x, self.y+v2.y))
+def main(line):
 
+    #TODO: FIX IT WITH NOTICE
+    values = line.split(';')
+    if((len(values) == 2) and (values[0] != '') and (values[1] != '') and (values[0] != '.' and values[1] != '.')):
+        if(re.match(r'^-?[0-9]*\.?[0-9]*$', values[0]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[1])):
+            return Vecteur2D(values[0], values[1])
+        else:
+            raise Exception(
+                200, "BAD INPUT: Values are not digits or are less than 0!")
+    else:
+        raise Exception(100, "BAD INPUT: You need to enter 2 values")
 
 if __name__ == "__main__":
     v1 = Vecteur2D()
+
+    print("par défaut :", end=" ")
     v1.affiche()
 
-    v2 = Vecteur2D(3, 4)
-    v2.affiche()
-
-    v3 = Vecteur2D(4, 6)
-
-    v4 = v2+v3
-    v4.affiche()
+    if(len(sys.argv) > 1):
+        try:
+            f = open(sys.argv[1], "r")
+        except:
+            print("Error while opening file")
+        for line in f.readlines():
+            try:
+                v = main(line.strip())
+            except Exception as exception:
+                error_code = exception.args[0]
+                error_msg = exception.args[1]
+                print(error_msg + ', error code : ' + str(error_code))
+            else:
+                print("instance :", end = " ")
+                v.affiche()
+    else:
+        print("Error: you must enter file name")
