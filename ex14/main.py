@@ -4,8 +4,7 @@ class MaClasse:
 
     def affiche(self):
         z = 42
-        print("y = " + str(self.y))
-        print("z = " + str(z))
+        print("(" + str(self.y) + ", " + str(z) + ")")
 
 if __name__ == "__main__":
     maClasse1 = MaClasse()
