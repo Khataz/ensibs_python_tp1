@@ -33,6 +33,6 @@ if __name__ == "__main__":
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
             else:
-                print("Sphere volume = " + str(result))
+                print(round(result, 8))
     else:
         print("Error: you must enter file name")
