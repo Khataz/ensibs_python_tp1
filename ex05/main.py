@@ -13,5 +13,4 @@ def main():
 
 if __name__ == "__main__":
     res = main()
-    for e in res:
-        print(str(e))
+    print(res)
