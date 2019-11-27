@@ -44,12 +44,12 @@ if __name__ == "__main__":
                 print(error_msg + ', error code : ' + str(error_code))
             else :
                 if(result == STOP):
-                    print("STOPPING SYSTEM...")
+                    print("KO")
                 elif(result == INCREASE_VOLUME):
-                    print("You need to INCREASE the volume of the enclosure!")
+                    print("Augmenter")
                 elif(result == DECREASE_VOLUME):
-                    print("You need to DECREASE the volume of the enclosure!")
+                    print("Diminuer")
                 else:
-                    print("Everything is fine!")
+                    print("OK")
     else:
         print("Error: you must enter file name")
