@@ -43,8 +43,9 @@ if __name__ == "__main__":
                 print(error_msg + ', error code : ' + str(error_code))
             else:
                 if(result[1]):
-                    print("Words '" + result[0] + "' are equals")
+                    #On peut faire un affichage différent quand ils sont égaux si on veut...
+                    print(result[0])
                 else:
-                    print("Smallest word = '" + result[0] + "'")
+                    print(result[0])
     else:
         print("Error: you must enter file name")
