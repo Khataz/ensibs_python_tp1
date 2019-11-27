@@ -26,10 +26,11 @@ def function7():
     return X&Y
 
 if __name__ == "__main__":
-    print(function1())
-    print(function2())
-    print(function3())
-    print(function4())
-    print(function5())
-    print(function6())
-    print(function7())
+    print("X :", function1()[0])
+    print("Y :", function1()[1])
+    print("c in X :", function2())
+    print("a in Y :", function3())
+    print("X - Y :", function4())
+    print("Y - X :", function5())
+    print("X union Y :", function6())
+    print("X inter Y :", function7())
