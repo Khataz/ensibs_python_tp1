@@ -21,15 +21,12 @@ def tchacatchac(speed):
             hour,minute = splitTime(float(distance)/float(speed))
             hour += 9
 
-            return (str(hour) + "h et " + str(minute) + "min" )
+            return (str(hour) + ":" + str(minute))
         except:
             raise Exception(200, "BAD INPUT: Failed casting to float")
     else:
         raise Exception(100, "BAD INPUT: Not a positive number")
 
 if __name__ == "__main__":
-    result = []
     for speed in range(100, 310, 10):
-        result.append(tchacatchac(speed))
-
-    print(result)
+        print(str(speed) + "km/h -> " + tchacatchac(speed))
