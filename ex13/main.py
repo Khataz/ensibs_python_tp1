@@ -6,7 +6,7 @@ def CompterMots(sentence):
     # TODO:I allowed '-' to count as char, is that right, see regex
     if re.match(r'^[a-zA-Z]+((\ *|-)?[a-zA-Z]+)*.?$', sentence):
         words = sentence.split()
-
+        words.sort()
         ret = {e: sentence.count(e) for e in words}
 
         return ret
