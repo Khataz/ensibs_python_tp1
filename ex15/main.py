@@ -22,7 +22,7 @@ def main(line):
             return Vecteur2D(values[0], values[1])
         else:
             raise Exception(
-                200, "BAD INPUT: Values are not digits or are less than 0!")
+                200, "BAD INPUT: Values are not digits!")
     else:
         raise Exception(100, "BAD INPUT: You need to enter 2 values")
 

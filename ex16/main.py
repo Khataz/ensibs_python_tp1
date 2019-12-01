@@ -14,25 +14,20 @@ class Vecteur2D:
     def affiche(self):
         print("(x=" + str(self.x) + ", y=" + str(self.y) + ")")
 
-def main(line):
+    def __add__(self, v2):
+        return(Vecteur2D(float(self.x)+float(v2.x), float(self.y)+float(v2.y)))
 
-    #TODO: FIX IT WITH NOTICE
+def main(line):
     values = line.split(';')
-    if((len(values) == 2) and (values[0] != '') and (values[1] != '') and (values[0] != '.' and values[1] != '.')):
-        if(re.match(r'^-?[0-9]*\.?[0-9]*$', values[0]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[1])):
-            return Vecteur2D(values[0], values[1])
+    if((len(values) == 4) and (values[0] != '') and (values[1] != '') and (values[2] != '') and (values[3] != '') and (values[0] != '.') and (values[1] != '.') and (values[2] != '.') and (values[3] != '.')):
+        if(re.match(r'^-?[0-9]*\.?[0-9]*$', values[0]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[1]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[2]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[3])):
+            return (Vecteur2D(values[0], values[1]), Vecteur2D(values[2], values[3]))
         else:
-            raise Exception(
-                200, "BAD INPUT: Values are not digits or are less than 0!")
+            raise Exception(200, "BAD INPUT: Values are not digits!")
     else:
-        raise Exception(100, "BAD INPUT: You need to enter 2 values")
+        raise Exception(100, "BAD INPUT: You need to enter 4 values")
 
 if __name__ == "__main__":
-    v1 = Vecteur2D()
-
-    print("par défaut :", end=" ")
-    v1.affiche()
-
     if(len(sys.argv) > 1):
         try:
             f = open(sys.argv[1], "r")
@@ -40,13 +35,20 @@ if __name__ == "__main__":
             print("Error while opening file")
         for line in f.readlines():
             try:
-                v = main(line.strip())
+                (v1, v2) = main(line.strip())
             except Exception as exception:
                 error_code = exception.args[0]
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
             else:
-                print("instance :", end = " ")
-                v.affiche()
+                print("v1 :", end = " ")
+                v1.affiche()
+
+                print("v2 :", end = " ")
+                v2.affiche()
+
+                sumResult = v1+v2
+                print("somme :", end = " ")
+                sumResult.affiche()
     else:
         print("Error: you must enter file name")
