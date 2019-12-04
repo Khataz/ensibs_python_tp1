@@ -3,11 +3,22 @@ import re
 
 
 def main(line):
+    """
+    Return the speed.
 
+    After sanitizing the input (line), this function compute the speed.
+
+    :param line: line in input
+    :type line: string
+    :raises Exception: 100 - BAD INPUT: You need to enter 2 values
+    :raises Exception: 200 - BAD INPUT: The program failed to compare the two words
+    :raises Exception: 300 - BAD INPUT: Values are not words! (Sentences are not allowed)
+    :return (wordX, iddentical): smallest world, if they are iddentical
+    :rtype: (str, boolean)
+    """
     values = line.split(';')
     if((len(values) == 2) and (values[0] != '') and (values[1] != '')):
         if(re.match(r'^\w*$', values[0]) and re.match(r'^\w*$', values[1])):
-            # TODO: We use "\w" here but we can enter numbers, should we block numbers ?
             word1 = values[0]
             word2 = values[1]
 
@@ -43,7 +54,7 @@ if __name__ == "__main__":
                 print(error_msg + ', error code : ' + str(error_code))
             else:
                 if(result[1]):
-                    #On peut faire un affichage différent quand ils sont égaux si on veut...
+                    # On peut faire un affichage différent quand ils sont égaux si on veut...
                     print(result[0])
                 else:
                     print(result[0])

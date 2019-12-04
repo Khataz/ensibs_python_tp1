@@ -7,11 +7,12 @@ def main(line):
     """
     Compute square root of a number.
 
-    @param line: line readed from file containing a float
-    @type line: string
-    @raise Exception: if BAD INPUT
-    @return value
-    @rtype float
+    :param line: line readed from file containing a float
+    :type line: string
+    :raises Exception: 100 - BAD INPUT: Not a float
+    :raises Exception: 200 - BAD INPUT: Failed casting to float
+    :return value: speed calculated
+    :rtype: float
     """
     if(re.match(r'^([0-9]*\.[0-9]*)(e-?[0-9]+)?$', line) and (line != '.')):
         # TODO 1: Should we block int ? (we did here)

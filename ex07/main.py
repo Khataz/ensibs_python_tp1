@@ -97,6 +97,7 @@ def main(line):
         raise Exception(
             10, "BAD INPUT: you need to pass 4 args : fonction, borneInf, borneSup, nbPas")
 
+    # TODO add check
     func = eval(funcName)
     ret = tabuler(func, borneInf, borneSup, nbPas)
     return ret
