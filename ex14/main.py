@@ -1,4 +1,7 @@
 class MaClasse:
+    """
+        Classe MaClasse.
+    """
     x = 23
     y = x + 5
 

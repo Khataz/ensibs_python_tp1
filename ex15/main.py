@@ -3,12 +3,18 @@ import re
 
 
 class Vecteur2D:
+    """
+        Class Vecteur2D : two dimensions vector class.
+    """
 
     x = 0
     y = 0
 
     def __init__(self, valX=0, valY=0):
-        """Constructeur de notre classe. Si aucun paramètre n'est précisé, le vecteur sera de (0;0)"""
+        """
+            Class constructor.
+            If no parameters, (0;0) is returned.
+        """
         self.x = valX
         self.y = valY
 

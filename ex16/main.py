@@ -3,12 +3,18 @@ import re
 
 
 class Vecteur2D:
+    """
+        Class Vecteur2D : two dimensions vector class.
+    """
 
     x = 0
     y = 0
 
     def __init__(self, valX=0, valY=0):
-        """Constructeur de notre classe. Si aucun paramètre n'est précisé, le vecteur sera de (0;0)"""
+        """
+            Class constructor.
+            If no parameters, (0;0) is returned.
+        """
         self.x = valX
         self.y = valY
 
@@ -34,6 +40,16 @@ class Vecteur2D:
 
 
 def main(line):
+    """
+    Return the a Vecteur2D.
+
+    :param line: line in input, format : FLOAT<x>;FLOAT<y>
+    :type line: string
+    :raises Exception: 100 - BAD INPUT: You need to enter 2 values
+    :raises Exception: 200 - BAD INPUT: Values are not digits!
+    :return: Vecteur2D(x,y)
+    :rtype: Vecteur2D
+    """
     values = line.split(';')
     if((len(values) == 4) and (values[0] != '') and (values[1] != '') and (values[2] != '') and (values[3] != '') and (values[0] != '.') and (values[1] != '.') and (values[2] != '.') and (values[3] != '.')):
         if(re.match(r'^-?[0-9]*\.?[0-9]*$', values[0]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[1]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[2]) and re.match(r'^-?[0-9]*\.?[0-9]*$', values[3])):
