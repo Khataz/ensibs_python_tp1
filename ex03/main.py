@@ -8,12 +8,12 @@ def main(line):
 
     After sanitizing the input (line), this function compute the speed.
 
-    :param line: line in input
+    :param line: line in input, format : STR<mot1>;STR<mot2>
     :type line: string
     :raises Exception: 100 - BAD INPUT: You need to enter 2 values
     :raises Exception: 200 - BAD INPUT: The program failed to compare the two words
     :raises Exception: 300 - BAD INPUT: Values are not words! (Sentences are not allowed)
-    :return (wordX, iddentical): smallest world, if they are iddentical
+    :return: (wordX, iddentical)
     :rtype: (str, boolean)
     """
     values = line.split(';')

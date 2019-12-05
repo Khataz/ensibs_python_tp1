@@ -2,10 +2,12 @@ def main(liste):
     """
     Return list
 
-    @return ret
-    @rtype array[int]
+    :param liste:
+    :type liste: array[int]
+    :return: ret
+    :rtype: array[int]
     """
-    ret = [x+3 if x > 2 else x for x in liste]
+    ret = [x + 3 if x > 2 else x for x in liste]
     return ret
 
 

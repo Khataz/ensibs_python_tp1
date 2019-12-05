@@ -11,15 +11,14 @@ def main(line):
     :type line: string
     :raises Exception: 100 - BAD INPUT: Not a float
     :raises Exception: 200 - BAD INPUT: Failed casting to float
-    :return value: speed calculated
+    :return: value
     :rtype: float
     """
     if(re.match(r'^([0-9]*\.[0-9]*)(e-?[0-9]+)?$', line) and (line != '.')):
-        # TODO 1: Should we block int ? (we did here)
-        # TODO 2: Test if we allow all floats
         try:
             value = float(line)
-            return sqrt(value)
+            root_value = sqrt(value)
+            return root_value
         except:
             raise Exception(200, "BAD INPUT: Failed casting to float")
     else:

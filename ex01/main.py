@@ -8,13 +8,13 @@ def main(line):
 
     After sanitizing the input (line), this function compute the speed.
 
-    :param line: line in input
+    :param line: line in input, format : FLOAT<temps>;FLOAT<distance>
     :type line: string
     :raises Exception: 100 - BAD INPUT: You need to enter 2 values
     :raises Exception: 200 - BAD INPUT: Values are not digits or are less than 0!
     :raises Exception: 300 - BAD INPUT: Time must be greater than 0!
-    :return speed: speed calculated
-    :rtype: float
+    :return: speed
+    :rtype: float2
     """
     values = line.split(';')
     if((len(values) == 2) and (values[0] != '') and (values[1] != '') and (values[0] != '.' and values[1] != '.')):
