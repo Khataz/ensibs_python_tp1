@@ -7,11 +7,11 @@ def maFonction(x):
     """
     Compute f(x)=2x³+x-5
 
-    @param x: x value
-    @type x: float
-    @raise Exception: if BAD INPUT
-    @return res
-    @rtype float
+    :param x: x value
+    :type x: float
+    :raise Exception: if BAD INPUT
+    :return: res
+    :rtype: float
     """
     res = 2 * (x**3) + x - 5
     return res
@@ -19,18 +19,18 @@ def maFonction(x):
 
 def tabuler(fonction, borneInf, borneSup, nbPas):
     """
-    Compute square root of a number.
+    Compute fonction for values from borneInf to borneSup each nbPas.
 
-    @param fonction: function(x)
-    @type fonction: function
-    @param borneInf: lower boundary
-    @type borneInf: float
-    @param borneSup: higher boundary
-    @type borneSup: float
-    @param nbPas: step
-    @type nbPas: int
-    @return value
-    @rtype array[float]
+    :param fonction: function(x)
+    :type fonction: function
+    :param borneInf: lower boundary
+    :type borneInf: float
+    :param borneSup: higher boundary
+    :type borneSup: float
+    :param nbPas: step
+    :type nbPas: int
+    :return: value
+    :rtype: array[float]
     """
     if borneInf < borneSup:
         # TODO check boundary in new subject"""
@@ -47,13 +47,11 @@ def main(line):
     """
     Check line then call tabuler.
 
-    @param line: line readed from file containing 3 floats (borneInf;borneSup;nbPas)
-    @type line: string
-    @raise Exception: if BAD INPUT
-    @return /
-    @rtype array[float]
-
-    @todo check why it continue after raised error
+    :param line: line readed from file containing 3 floats (borneInf;borneSup;nbPas)
+    :type line: string
+    :raise Exception: if BAD INPUT
+    :return: ret
+    :rtype: array[float]
     """
     values = line.split(';')
     regex = r"-?([0-9]*\.?[0-9]*)(e-?[0-9]+)?$"
@@ -87,18 +85,23 @@ def main(line):
                                 raise Exception(
                                     120, "BAD INPUT: nbPas is not a float")
                     else:
-                        raise Exception(110, "BAD INPUT: borneSup is not a float")
+                        raise Exception(
+                            110, "BAD INPUT: borneSup is not a float")
             else:
                 raise Exception(100, "BAD INPUT: borneInf is not a float")
-        else :
+        else:
             raise Exception(20, "BAD INPUT: fonction is not a string")
 
     else:
         raise Exception(
             10, "BAD INPUT: you need to pass 4 args : fonction, borneInf, borneSup, nbPas")
 
-    # TODO add check
-    func = eval(funcName)
+    func = None
+    try:
+        func = eval(funcName)
+    except:
+        raise Exception(30, "BAD INPUT: Unknown function")
+
     ret = tabuler(func, borneInf, borneSup, nbPas)
     return ret
 

@@ -1,20 +1,38 @@
 import sys
 import re
 
+
 class Vecteur2D:
 
     x = 0
     y = 0
 
-    def __init__(self, valX = 0, valY = 0):
+    def __init__(self, valX=0, valY=0):
         """Constructeur de notre classe. Si aucun paramètre n'est précisé, le vecteur sera de (0;0)"""
         self.x = valX
         self.y = valY
 
     def affiche(self):
+        """
+        Print (self.y, z)
+
+        :param none:
+        :return: none
+        """
         print("(x=" + str(self.x) + ", y=" + str(self.y) + ")")
 
+
 def main(line):
+    """
+    Return the a Vecteur2D.
+
+    :param line: line in input, format : FLOAT<x>;FLOAT<y>
+    :type line: string
+    :raises Exception: 100 - BAD INPUT: You need to enter 2 values
+    :raises Exception: 200 - BAD INPUT: Values are not digits!
+    :return: Vecteur2D(x,y)
+    :rtype: Vecteur2D
+    """
 
     values = line.split(';')
     if((len(values) == 2) and (values[0] != '') and (values[1] != '') and (values[0] != '.' and values[1] != '.')):
@@ -25,6 +43,7 @@ def main(line):
                 200, "BAD INPUT: Values are not digits!")
     else:
         raise Exception(100, "BAD INPUT: You need to enter 2 values")
+
 
 if __name__ == "__main__":
     v1 = Vecteur2D()
@@ -45,7 +64,7 @@ if __name__ == "__main__":
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
             else:
-                print("instance :", end = " ")
+                print("instance :", end=" ")
                 v.affiche()
     else:
         print("Error: you must enter file name")

@@ -6,7 +6,20 @@ STOP = "STOP"
 INCREASE_VOLUME = "INCREASE_VOLUME"
 DECREASE_VOLUME = "DECREASE_VOLUME"
 
+
 def main(line):
+    """
+    Return the status.
+
+    Return the status of the enclosure with the parameters pressure, volume.
+
+    :param line: line in input, format : FLOAT<pression>;FLOAT<volume>
+    :type line: string
+    :raises Exception: 100 - BAD INPUT: You need to enter 2 values
+    :raises Exception: 200 - BAD INPUT: Values are not digits or are less than 0!
+    :return: {"KO","Augmenter","Diminuer","OK"}
+    :rtype: str
+    """
     pThreshold = 2.3
     vThreshold = 7.41
 
@@ -24,7 +37,8 @@ def main(line):
             else:
                 return OK
         else:
-            raise Exception(200, "BAD INPUT: Values are not digits or are less than 0!")
+            raise Exception(
+                200, "BAD INPUT: Values are not digits or are less than 0!")
     else:
         raise Exception(100, "BAD INPUT: You need to enter 2 values")
 
@@ -38,11 +52,11 @@ if __name__ == "__main__":
         for line in f.readlines():
             try:
                 result = main(line.strip())
-            except Exception as exception :
+            except Exception as exception:
                 error_code = exception.args[0]
                 error_msg = exception.args[1]
                 print(error_msg + ', error code : ' + str(error_code))
-            else :
+            else:
                 if(result == STOP):
                     print("KO")
                 elif(result == INCREASE_VOLUME):

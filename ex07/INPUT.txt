@@ -6,3 +6,4 @@ maFonction;11;10;1
 maFonction;-10;-11;1
 maFonction;-6;6;-2
 maFonction;-6;6;0
+abc;-6;6;1

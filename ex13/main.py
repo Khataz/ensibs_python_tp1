@@ -3,6 +3,16 @@ import re
 
 
 def CompterMots(sentence):
+    """
+    Return the number of occurence of each word in sentence.
+
+    :param sentence: line in input
+    :type sentence: string
+    :raises Exception: 100 - BAD INPUT: You need to enter 2 values
+    :raises Exception: 200 - BAD INPUT: Values are not digits or are less than 0!
+    :return: {'word1': nbOfWord1, 'word2': nbOfWord2, ...}
+    :rtype: {'STR': INT, 'STR': INT, ...}
+    """
     # TODO:I allowed '-' to count as char, is that right, see regex
     if re.match(r'^[a-zA-Z]+((\ *|-)?[a-zA-Z]+)*.?$', sentence):
         words = sentence.split()
